@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+{% csrf_token %}
+
+<html lang="ja" dir="ltr">
+ <head>
+   <meta charset="utf-8">
+   <title>{{message_me}}</title>
+   <!-- <script src="{% static 'js/script.js' %}"></script> -->
+<!-- <link rel="stylesheet" href='{% static "poker_fortune_css/style.css" %}'/>  -->
+ </head>
+
+ <body>
+
+   <h1>{{message_me}}</h1>
+   <p>人数(2~9)を決めて実行</p>
+   <form action="" method="post">
+    {% csrf_token %}
+    <input type="number" name="num_players" min="2" max="9" >
+    <input type="submit" name="start_button" value="実行">
+   </form>
+   
+   <h2>board</h2>
+   {% for card in board %}
+   <img src="{% static card %}" alt="card">
+   {% endfor %}
+
+   {% for player in players  %}
+   <h2>player {{forloop.counter}}</h2>
+   {% for card in player %}
+   <img src="{% static card %}" alt="card">
+   {% endfor %}
+   {% endfor %}
+
+
+   <h2>winner</h2>
+   {% for winner in winners%}
+   <p>player {{winner}}</p>
+   {% endfor %}
+   <!-- <img src='{% static image1 %}' alt="Home"> -->
+ </body>
+
+</html>
