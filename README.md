@@ -10,7 +10,7 @@
 
 ポット取得者winner
 
-ファイルツリー
+<pre>
 .
 ├── Template
 │   └── poker_fortune_HTML
@@ -128,3 +128,4 @@
     │   └── script.js
     └── poker_fortune_css
         └── style.css
+<pre>
